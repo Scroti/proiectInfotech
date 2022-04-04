@@ -1,1 +1,24 @@
-<div></div>
+<div class="main">
+  <div class="auth">
+    <form class="form-group">
+      <h1 class="text-center">
+        {{ isLoginMode ? "Log in" : "Create an account" }}
+      </h1>
+      <div>
+        <label for="Email" class="mb-2">Email</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div>
+        <label for="Email" class="mb-2">Password</label>
+        <input type="password" class="form-control" />
+      </div>
+      <button class="btn btn-primary mb-2">
+        {{ isLoginMode ? "Log in" : "Sign Up" }}
+      </button>
+    </form>
+    <p class="ltext mt-3" (click)="changeMode()">
+      {{ isLoginMode ? "Log in" : "Sign Up" }}
+    </p>
+  </div>
+  <div class="background"></div>
+</div>

@@ -1,0 +1,46 @@
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.auth {
+  background-color: #f6f7fbbf;
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+form > h1 {
+  font-size: 26px;
+}
+form {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 40%;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 25px;
+}
+.background {
+  position: absolute;
+  background: url("../../assets/bg.jpg");
+  background-size: cover;
+  margin-left: 30%;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ltext {
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+}
