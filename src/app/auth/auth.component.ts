@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormControl, FormGroup } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
   isLoginMode: boolean = true;
-  constructor() {}
+  constructor(private auth: AngularFireAuth) {}
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
   changeMode() {
     this.isLoginMode = !this.isLoginMode;
+  }
+  onSubmit() {
+    if (this.isLoginMode === false) {
+      this.auth.createUserWithEmailAndPassword(
+        this.loginForm.get('email')?.value,
+        this.loginForm.get('password')?.value
+      );
+    } else {
+      this.auth.signInWithEmailAndPassword(
+        this.loginForm.get('email')?.value,
+        this.loginForm.get('password')?.value
+      );
+    }
   }
   ngOnInit(): void {}
 }

@@ -1,16 +1,20 @@
 <div class="main">
   <div class="auth">
-    <form class="form-group">
+    <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <h1 class="text-center">
         {{ isLoginMode ? "Log in" : "Create an account" }}
       </h1>
       <div>
         <label for="Email" class="mb-2">Email</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" formControlName="email" />
       </div>
       <div>
         <label for="Email" class="mb-2">Password</label>
-        <input type="password" class="form-control" />
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
       </div>
       <button class="btn btn-primary mb-2">
         {{ isLoginMode ? "Log in" : "Sign Up" }}
