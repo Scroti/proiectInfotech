@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -8,7 +9,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AuthComponent implements OnInit {
   isLoginMode: boolean = true;
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth, private router: Router) {}
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
@@ -23,10 +24,14 @@ export class AuthComponent implements OnInit {
         this.loginForm.get('password')?.value
       );
     } else {
-      this.auth.signInWithEmailAndPassword(
-        this.loginForm.get('email')?.value,
-        this.loginForm.get('password')?.value
-      );
+      this.auth
+        .signInWithEmailAndPassword(
+          this.loginForm.get('email')?.value,
+          this.loginForm.get('password')?.value
+        )
+        .then(() => {
+          this.router.navigate(['/dashboard']);
+        });
     }
   }
   ngOnInit(): void {}

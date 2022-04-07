@@ -28,6 +28,7 @@
     "@angular/cli": "~13.2.1",
     "@angular/compiler-cli": "~13.2.0",
     "@angular/fire": "^7.3.0",
+    "@angular/material": "^13.3.2",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "bootstrap": "^5.1.3",
